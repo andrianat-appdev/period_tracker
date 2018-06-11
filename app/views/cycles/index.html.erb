@@ -19,7 +19,13 @@
 
       <% @cycles.each do |cycle| %>
       <tr>
-        <td><%= cycle.user.email %></td>
+        <td>
+          <% if cycle.user.present? %>
+            <a href="/users/<%= cycle.user.id %>">
+              <%= cycle.user.email %>
+            </a>
+          <% end %>
+        </td>
         <td><%= cycle.begin %></td>
         <td><%= cycle.end %></td>
         <td><%= cycle.length %></td>
