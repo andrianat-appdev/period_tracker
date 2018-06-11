@@ -26,8 +26,11 @@
         <td><%= cycle.notes %></td>
         <td>
           <a href="/cycles/<%= cycle.id %>" class="btn btn-primary">Show</a>
-          <a href="/cycles/<%= cycle.id %>/edit" class="btn btn-warning">Edit</a>
-          <a href="/delete_cycle/<%= cycle.id %>" class="btn btn-danger" rel="nofollow">Delete</a>
+          
+          <% if current_user == cycle.user %>
+            <a href="/cycles/<%= cycle.id %>/edit" class="btn btn-warning">Edit</a>
+            <a href="/delete_cycle/<%= cycle.id %>" class="btn btn-danger" rel="nofollow">Delete</a>
+          <% end %>
         </td>
       </tr>
       <% end %>

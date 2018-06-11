@@ -1,4 +1,14 @@
 class CyclesController < ApplicationController
+  before_action :current_user_must_be_cycle_user, :only => [:edit, :update, :destroy]
+
+  def current_user_must_be_cycle_user
+    cycle = Cycle.find(params[:id])
+
+    unless current_user == cycle.user
+      redirect_to :back, :alert => "You are not authorized for that."
+    end
+  end
+
   def index
     @cycles = Cycle.all
 
