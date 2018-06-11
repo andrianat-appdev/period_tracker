@@ -10,7 +10,8 @@ class CyclesController < ApplicationController
   end
 
   def index
-    @cycles = current_user.cycles.page(params[:page]).per(10)
+    @q = current_user.cycles.ransack(params[:q])
+    @cycles = @q.result(:distinct => true).includes(:user).page(params[:page]).per(10)
 
     render("cycles/index.html.erb")
   end
