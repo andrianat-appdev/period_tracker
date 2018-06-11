@@ -1,0 +1,36 @@
+<div class="page-header">
+  <h1>
+    Cycles
+    <a href="/cycles/new" class="btn btn-lg btn-success">New Cycle</a>
+  </h1>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <table class="table table-striped table-hover">
+      <tr>
+        <th>User</th>
+        <th>Begin</th>
+        <th>End</th>
+        <th>Length</th>
+        <th>Notes</th>
+        <th>Actions</th>
+      </tr>
+
+      <% @cycles.each do |cycle| %>
+      <tr>
+        <td><%= cycle.user_id %></td>
+        <td><%= cycle.begin %></td>
+        <td><%= cycle.end %></td>
+        <td><%= cycle.length %></td>
+        <td><%= cycle.notes %></td>
+        <td>
+          <a href="/cycles/<%= cycle.id %>" class="btn btn-primary">Show</a>
+          <a href="/cycles/<%= cycle.id %>/edit" class="btn btn-warning">Edit</a>
+          <a href="/delete_cycle/<%= cycle.id %>" class="btn btn-danger" rel="nofollow">Delete</a>
+        </td>
+      </tr>
+      <% end %>
+    </table>
+  </div>
+</div>

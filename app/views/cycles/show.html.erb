@@ -1,0 +1,37 @@
+<div class="page-header">
+  <h3>Cycle #<%= @cycle.id %></h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12 mb-2">
+    <dl class="dl-horizontal">
+      <dt>User</dt>
+      <dd><%= @cycle.user_id %></dd>
+
+      <dt>Begin</dt>
+      <dd><%= @cycle.begin %></dd>
+
+      <dt>End</dt>
+      <dd><%= @cycle.end %></dd>
+
+      <dt>Length</dt>
+      <dd><%= @cycle.length %></dd>
+
+      <dt>Notes</dt>
+      <dd><%= @cycle.notes %></dd>
+
+    </dl>
+
+    <div class="btn-group btn-group-justified">
+      <a href="/cycles" class="btn btn-primary">
+        Back
+      </a>
+      <a href="/cycles/<%= @cycle.id %>/edit" class="btn btn-warning">
+        Edit
+      </a>
+      <a href="/delete_cycle/<%= @cycle.id %>" class="btn btn-danger" rel="nofollow">
+        Delete
+      </a>
+    </div>
+  </div>
+</div>

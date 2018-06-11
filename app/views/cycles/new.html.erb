@@ -1,0 +1,73 @@
+<!-- Validation failure messages -->
+<% if @cycle.errors.any? %>
+  <% @cycle.errors.full_messages.each do |message| %>
+    <div class="alert alert-dismissable alert-danger">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+      <%= message %>
+    </div>
+  <% end %>
+<% end %>
+
+<div class="page-header">
+  <h3>Add Cycle</h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <form action="/create_cycle" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for user_id -->
+      <div class="form-group">
+        <label for="user_id" class="control-label">
+          User
+        </label>
+
+        <input type="text" id="user_id" name="user_id" placeholder="User" class="form-control" value="<%= @cycle.user_id %>">
+      </div>
+
+      <!-- Label and input for begin -->
+      <div class="form-group">
+        <label for="begin" class="control-label">
+          Begin
+        </label>
+
+        <input type="text" id="begin" name="begin" placeholder="Begin" class="form-control" value="<%= @cycle.begin %>">
+      </div>
+
+      <!-- Label and input for end -->
+      <div class="form-group">
+        <label for="end" class="control-label">
+          End
+        </label>
+
+        <input type="text" id="end" name="end" placeholder="End" class="form-control" value="<%= @cycle.end %>">
+      </div>
+
+      <!-- Label and input for length -->
+      <div class="form-group">
+        <label for="length" class="control-label">
+          Length
+        </label>
+
+        <input type="text" id="length" name="length" placeholder="Length" class="form-control" value="<%= @cycle.length %>">
+      </div>
+
+      <!-- Label and input for notes -->
+      <div class="form-group">
+        <label for="notes" class="control-label">
+          Notes
+        </label>
+
+        <textarea id="notes" name="notes" placeholder="Notes" class="form-control" rows="3"><%= @cycle.notes %></textarea>
+      </div>
+
+      <button class="btn btn-success">
+        Create Cycle
+      </button>
+      or
+      <a href="/cycles">Cancel</a>
+    </form>
+  </div>
+</div>
