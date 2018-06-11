@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  root :to => "cycles#index"
   # Routes for the Cycle resource:
   # CREATE
   get "/cycles/new", :controller => "cycles", :action => "new"
