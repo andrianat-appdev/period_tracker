@@ -19,7 +19,7 @@
 
       <% @cycles.each do |cycle| %>
       <tr>
-        <td><%= cycle.user_id %></td>
+        <td><%= cycle.user.email %></td>
         <td><%= cycle.begin %></td>
         <td><%= cycle.end %></td>
         <td><%= cycle.length %></td>
