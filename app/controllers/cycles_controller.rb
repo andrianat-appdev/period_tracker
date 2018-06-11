@@ -50,8 +50,6 @@ class CyclesController < ApplicationController
 
   def update
     @cycle = Cycle.find(params[:id])
-
-    @cycle.user_id = params[:user_id]
     @cycle.begin = params[:begin]
     @cycle.end = params[:end]
     @cycle.length = params[:length]
